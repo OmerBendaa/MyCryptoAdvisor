@@ -1,0 +1,59 @@
+import { IUser } from "../common/types";
+import userService from "../services/usersService";
+import { Request, Response } from "express";
+import encryptionUtils from "../utils/encryptionUtils";
+
+const createUser = async (req: Request<IUser>, res: Response) => {
+        console.log("Entered Controlerrrrrrrrrrrrrrrrrrr");
+
+    req.body.password = encryptionUtils.encrypt(req.body.password);
+    try {
+    const user = await userService.createUser(req.body);
+    res.status(201).json(user);
+  } catch (error:any) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const getUserByEmail = async (req: Request, res: Response) => {
+    const email=req.query.email;
+    try {
+    const user = await userService.getUserByEmail(email as string);
+    res.status(200).json(user);
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+// const getUserByToken = async (req: Request, res: Response) => {
+//   try{
+//     const token = req.body.token;
+//     const {_id}=jwt.decode(token) as {_id:string};
+//     const user = await userService.getUserById(_id);
+//     if(!user){
+//       res.status(404).json({message:"user not found"});
+//     }else{
+//       res.status(200).json(user);
+//     }
+//   }catch(error:any){
+//     res.status(500).json({ message: error.message });
+//   }
+// }
+
+const login = async (req: Request<{ email: string; password: string }>, res: Response) => {
+    const email = req.body.email;
+    try {
+    const user = await userService.getUserByEmail(email);
+  
+    res.status(200).json({user});
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export default {
+  createUser,
+  getUserByEmail,
+  login,
+};
