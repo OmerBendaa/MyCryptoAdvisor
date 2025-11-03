@@ -1,13 +1,12 @@
 import { IUser } from "../common/types";
 import userService from "../services/usersService";
 import { Request, Response } from "express";
-import encryptionUtils from "../utils/encryptionUtils";
 import authService from "../services/authService";
 
 const createUser = async (req: Request<IUser>, res: Response) => {
-    req.body.password = encryptionUtils.encrypt(req.body.password);
     try {
     const user = await userService.createUser(req.body);
+    console.log("Created user:", user);
     res.status(201).json(user);
   } catch (error:any) {
     res.status(500).json({ message: error.message });
@@ -41,10 +40,8 @@ const getUserByEmail = async (req: Request, res: Response) => {
 // }
 
 const login = async (req: Request<{ email: string; password: string }>, res: Response) => {
-    
     try {
     const user = await authService.login(req.body.email,req.body.password);
-  
     res.status(200).json({user});
   } catch (error: any) {
     res.status(500).json({ message: error.message });
