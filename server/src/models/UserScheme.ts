@@ -22,7 +22,7 @@ const UserScheme = new mongoose.Schema<IUser>({
     required: true,
     trim: true,
     minlength: 3,
-    maxlength: 50,
+    maxlength: 300,
   },
     userPreferences:{
         type:Object,

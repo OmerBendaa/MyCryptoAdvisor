@@ -2,8 +2,6 @@ import { IUser } from "../common/types";
 import User from "../models/UserScheme";
 
 const createUser = async (user: IUser): Promise<Omit<IUser, "password">> => {
-      console.log("Entered Serviceeeeeeeeeeeeeee");
-
     try {
     const newUser = await User.create(user);
     const { password, ...userWithoutPassword } = newUser;
