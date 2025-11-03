@@ -8,6 +8,7 @@ import {
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/PageNotFound";
 import DashboardPage from "./pages/DashboardPage";
+import SignUpPage from "./pages/SignUpPage";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
 
 const privateRoutes = [
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<LoginPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
       <Route path="*" element={<NotFoundPage />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/myDashboard" element={<DashboardPage />} />

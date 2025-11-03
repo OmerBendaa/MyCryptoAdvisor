@@ -5,7 +5,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; // Import the right arrow icon
-
 interface FormValues {
   email: string;
   password: string;
@@ -46,10 +45,10 @@ const LoginPage = () => {
           password: formValues.password,
         })
         .then((data) => {
-          localStorage.setItem("userToken", data.data.token);
+          localStorage.setItem("userToken", data.data.userToken);
           setIsLoading(false);
           message.success("Logged in successfully");
-          navigate("/home");
+          navigate("/myDashboard");
         })
         .catch((err) => {
           setIsLoading(false);
@@ -121,7 +120,6 @@ const LoginPage = () => {
             </Button>
           </Box>
 
-          {/* New section with "First timer? Signup for free" and right arrow */}
           <Box sx={{ marginTop: 2, textAlign: "center" }}>
             <Typography sx={{margin: "10px auto 20px"}}variant="body2" color="textSecondary">
               First time?{" "} sign up for free

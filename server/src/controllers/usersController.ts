@@ -41,8 +41,8 @@ const getUserByEmail = async (req: Request, res: Response) => {
 
 const login = async (req: Request<{ email: string; password: string }>, res: Response) => {
     try {
-    const user = await authService.login(req.body.email,req.body.password);
-    res.status(200).json({user});
+    const userToken = await authService.login(req.body.email,req.body.password);
+    res.status(200).json({userToken});
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
