@@ -4,7 +4,7 @@ import { message } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; // Import the right arrow icon
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; 
 interface FormValues {
   email: string;
   password: string;
@@ -26,6 +26,7 @@ const LoginPage = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let errors: FormValues = { email: "", password: "" };
@@ -44,14 +45,20 @@ const LoginPage = () => {
           email: formValues.email,
           password: formValues.password,
         })
-        .then((data) => {
+        .then(async (data) => {
           localStorage.setItem("userToken", data.data.userToken);
           setIsLoading(false);
+          const decodedToken = JSON.parse(atob(data.data.userToken.split(".")[1]));
           message.success("Logged in successfully");
-          navigate("/myDashboard");
+          const user = await axios.get("http://localhost:5000/users/email?email="+decodedToken.email);
+          const{userPrefrence}=user.data;
+          userPrefrence
+            ? navigate("/myDashboard")
+            : navigate("/OnboardingQuiz");
         })
         .catch((err) => {
           setIsLoading(false);
+          console.log("error",err);
           message.error("Email or password are incorrect");
         });
     }
