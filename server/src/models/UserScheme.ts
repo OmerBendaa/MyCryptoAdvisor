@@ -1,5 +1,23 @@
 import mongoose from "mongoose";
-import { IUser,IUserPreferences } from "../common/types";
+import { IUser, IUserPreferences } from "../common/types";
+
+const UserPreferencesScheme = new mongoose.Schema<IUserPreferences>(
+  {
+    cryptoAssets: {
+      type: [String],
+      default: [],
+    },
+    investorType: {
+      type: [String],
+      default: [],
+    },
+    contentType: {
+      type: [String],
+      default: [],
+    },
+  },
+  { _id: false } 
+);
 
 const UserScheme = new mongoose.Schema<IUser>({
   name: {
@@ -24,11 +42,12 @@ const UserScheme = new mongoose.Schema<IUser>({
     minlength: 3,
     maxlength: 300,
   },
-    userPreferences:{
-        type:Object,
-        required:false,
-        default:null
-    }
+  userPreferences: {
+    type: UserPreferencesScheme,
+    required: false,
+    default: null, 
+  },
 });
+
 const User = mongoose.model<IUser>("users", UserScheme);
-export default User
+export default User;

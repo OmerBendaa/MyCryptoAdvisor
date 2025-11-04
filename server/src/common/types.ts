@@ -6,6 +6,6 @@ export interface IUser{
 }
 export interface IUserPreferences {
     cryptoAssets:string[],
-    inverstorType:"HODLer"| "Day Trader" |"NFT Collector",
-    contentType:"Market News"|"Charts"| "Social"| "Fun"
+    investorType:string[],
+    contentType:string[]
 }
