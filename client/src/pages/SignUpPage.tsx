@@ -69,7 +69,6 @@ const SignUpPage = () => {
           })
         .catch((err) => {
           setIsLoading(false);
-          console.log("error",err);
           message.error("problem in signing up");
         });
     }

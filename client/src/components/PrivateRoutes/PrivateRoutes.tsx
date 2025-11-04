@@ -1,6 +1,6 @@
 import {message} from "antd";
 import {useState,useEffect} from "react";
-import {Outlet,Navigate} from "react-router-dom";
+import {Outlet,Navigate,} from "react-router-dom";
 import Loader from "../Loader/Loader";
 const PrivateRoutes = () => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -20,7 +20,7 @@ const PrivateRoutes = () => {
 
         return (
             <Loader isLoading={isLoading}>
-            {isLoggedIn ? <Outlet/> : <Navigate to="/"/>}
+            {isLoggedIn ? <Outlet/> : <Navigate to="404"/>}
             </Loader>
             )
     
