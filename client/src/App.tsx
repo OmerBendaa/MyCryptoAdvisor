@@ -1,20 +1,11 @@
 
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+import {createBrowserRouter,createRoutesFromElements,Route,RouterProvider} from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/PageNotFound";
 import DashboardPage from "./pages/DashboardPage";
 import SignUpPage from "./pages/SignUpPage";
-import OnboardingQuizPage from "./pages/OnboardingQuizPage";
+import OnBoardingQuizPage from "./pages/OnBoardingQuizPage";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
-
-const privateRoutes = [
-  { path: "/home", element: <DashboardPage /> },
-];
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,7 +14,7 @@ const router = createBrowserRouter(
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="*" element={<NotFoundPage />} />
       <Route element={<PrivateRoutes />}>
-        <Route path="/OnboardingQuiz" element={<OnboardingQuizPage />} />
+        <Route path="/OnboardingQuiz" element={<OnBoardingQuizPage />} />
         <Route path="/myDashboard" element={<DashboardPage />} />
       </Route>
     </>
