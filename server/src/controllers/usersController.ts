@@ -23,6 +23,16 @@ const getUserByEmail = async (req: Request, res: Response) => {
   }
 };
 
+const getOmittedUserByEmail = async (req: Request, res: Response) => {
+    const email=req.query.email;
+    try {
+    const user = await userService.getOmittedUserByEmail(email as string);
+    res.status(200).json(user);
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 
 // const getUserByToken = async (req: Request, res: Response) => {
 //   try{
@@ -51,5 +61,6 @@ const login = async (req: Request<{ email: string; password: string }>, res: Res
 export default {
   createUser,
   getUserByEmail,
+  getOmittedUserByEmail,
   login,
 };

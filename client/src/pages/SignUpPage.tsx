@@ -65,11 +65,12 @@ const SignUpPage = () => {
             password: formValues.password,
           })
             localStorage.setItem("userToken", data.data.userToken);
+            message.success("Signed up successfully");
             navigate("/OnboardingQuiz");
           })
         .catch((err) => {
           setIsLoading(false);
-          message.error("problem in signing up");
+          message.error(err.response.data.message || "Error occurred during sign up");
         });
     }
     setFormErrors(errors);

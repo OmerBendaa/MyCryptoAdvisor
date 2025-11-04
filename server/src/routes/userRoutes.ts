@@ -5,6 +5,6 @@ const router = Router();
 router
   .post("/", userController.createUser) 
   .post("/login", userController.login)
-  .get("/email", userController.getUserByEmail) 
+  .get("/email", userController.getOmittedUserByEmail) 
 
 export default router;

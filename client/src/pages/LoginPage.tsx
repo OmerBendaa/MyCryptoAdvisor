@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; 
+import fetchUser from "../hooks/fetchUser";
 interface FormValues {
   email: string;
   password: string;
@@ -48,10 +49,9 @@ const LoginPage = () => {
         .then(async (data) => {
           localStorage.setItem("userToken", data.data.userToken);
           setIsLoading(false);
-          const decodedToken = JSON.parse(atob(data.data.userToken.split(".")[1]));
           message.success("Logged in successfully");
-          const user = await axios.get("http://localhost:5000/users/email?email="+decodedToken.email);
-          const{userPrefrence}=user.data;
+          const user = await fetchUser(formValues.email);
+          const userPrefrence = user?.userPreferences || null;
           userPrefrence
             ? navigate("/myDashboard")
             : navigate("/OnboardingQuiz");
