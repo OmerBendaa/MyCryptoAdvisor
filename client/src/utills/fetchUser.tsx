@@ -12,15 +12,11 @@ const fetchUser = async (): Promise<IUser | null> => {
     const decodedToken = JSON.parse(atob(token.split(".")[1]));
     const email = decodedToken.email;
 
-    const response = await axios.get<IUser>(
-      `http://localhost:5000/users/email?email=${email}`
-    );
-
-    return response.data;
+    const response = await axios.get(`http://localhost:5000/users/email?email=${email}`);
+    return response.data?._doc || null;
   } catch (err) {
     console.error("Failed to fetch user:", err);
-    throw err;
+    return null;
   }
 };
-
 export default fetchUser;
