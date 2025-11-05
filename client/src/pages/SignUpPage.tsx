@@ -56,7 +56,7 @@ const SignUpPage = () => {
     if (errors.email === "" && errors.password === "" && errors.confirmPassword === "" && errors.name === "") {
       setIsLoading(true);
       axios
-        .post(`${API_USER_BASE}users`, {
+        .post(`${API_USER_BASE}`, {
           email: formValues.email,
           password: formValues.password,
           name: formValues.name,
