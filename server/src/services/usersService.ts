@@ -39,9 +39,24 @@ const getOmittedUserByEmail = async (email: string):  Promise<Omit<IUser, "passw
     throw new Error(error.message);
   }
 };
+const updateUserPreferences = async (userId: string, preferences: any): Promise<Omit<IUser, "password">> => {
+  if(userId==null || preferences==null){
+    throw new Error("Invalid input: userId and preferences are required");
+  }
+  try {
+    const user = await User.findByIdAndUpdate(userId, { userPreferences: preferences }, { new: true });
+    if (!user) {
+      throw new Error("User not found");
+    }
+    return omitPassword(user);
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+}
 
 export default {
   createUser,
   getUserByEmail,
   getOmittedUserByEmail,
+  updateUserPreferences
 };
