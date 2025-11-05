@@ -18,3 +18,4 @@ export const CONTENT_OPTIONS: string[] = [
   "Fun",
   "Education",
 ];
+ export const API_USER_BASE = "http://localhost:5000/users/";

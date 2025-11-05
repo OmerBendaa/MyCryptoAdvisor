@@ -4,7 +4,7 @@ import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/PageNotFound";
 import DashboardPage from "./pages/DashboardPage";
 import SignUpPage from "./pages/SignUpPage";
-import OnBoardingQuizPage from "./pages/OnBoardingQuizPage";
+import OnBoardingQuizPage from "./pages/OnboardingQuizPage";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter(

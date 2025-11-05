@@ -21,20 +21,18 @@ import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
 import fetchUser from "../utills/fetchUser";
-import { Asset, InvestorType, ContentPreference } from "../common/types";
+import { Asset, InvestorType, ContentPreference, IUserPreferences } from "../common/types";
 import {
   ASSET_SUGGESTIONS,
   INVESTOR_OPTIONS,
   CONTENT_OPTIONS,
+  API_USER_BASE,
 } from "../common/constants";
-interface QuizPreferences {
-  assets: Asset[];
-  investorTypes: InvestorType[];
-  contentPreferences: ContentPreference[];
-}
+import axios from "axios";
 
 const OnBoardingQuizPage = () => {
   const navigate = useNavigate();
+  const [userId,setUserId]=useState<string | null>(null);
   const [userName, setUserName] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedAssets, setSelectedAssets] = useState<Asset[]>([]);
@@ -66,23 +64,42 @@ const OnBoardingQuizPage = () => {
     submitPreferences();
   };
 
-  const submitPreferences = () => {
-    const preferences: QuizPreferences = {
-      assets: selectedAssets,
+  const submitPreferences = async () => {
+    const preferences: IUserPreferences = {
+      cryptoAssets: selectedAssets,
       investorTypes: selectedInvestorTypes,
-      contentPreferences: selectedContent,
+      contentTypes: selectedContent,
     };
-    message.success(`Preferences saved. Welcome aboard ${userName}!`);
-    navigate("/myDashboard");
+    try {
+      setIsLoading(true);
+      await axios.put(`${API_USER_BASE}userPreferences`, {
+        userId: userId,
+        preferences: preferences,
+      });
+      setIsLoading(false);
+      message.success(`Preferences saved. Welcome aboard ${userName}!`);
+      navigate("/myDashboard");
+    } catch (error) {
+      message.error("Failed to save preferences. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
     const getUser = async () => {
       setIsLoading(true);
-      const user = await fetchUser();
-      setUserName(user?.name || "");
-      setIsLoading(false);
+      try {
+        const user = await fetchUser();
+        setUserId(user?._id || null);
+        setUserName(user?.name || "");
+      } catch (err) {
+        message.error("Failed to load user data. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
     };
+
     getUser();
   }, []);
 
