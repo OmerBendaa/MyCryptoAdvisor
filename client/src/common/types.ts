@@ -23,3 +23,9 @@ export type ContentPreference =
   | "Social"
   | "Fun"
   | "Education";
+  export type CoinDataType={
+    id: string;
+    image: {thumb: string, small:string, large:string};
+    market_data: {current_price: {[key:string]:number} };
+}
+

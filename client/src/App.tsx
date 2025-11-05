@@ -6,6 +6,7 @@ import DashboardPage from "./pages/DashboardPage";
 import SignUpPage from "./pages/SignUpPage";
 import OnBoardingQuizPage from "./pages/OnboardingQuizPage";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
+import {QueryClient, QueryClientProvider}from '@tanstack/react-query'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,9 +21,12 @@ const router = createBrowserRouter(
     </>
   )
 );
+const queryClient = new QueryClient()
 function App() {
   return (
+    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router}/>
+    </QueryClientProvider>
   )
 }
 
