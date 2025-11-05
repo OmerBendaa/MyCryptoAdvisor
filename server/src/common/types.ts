@@ -6,6 +6,6 @@ export interface IUser{
 }
 export interface IUserPreferences {
     cryptoAssets:string[],
-    investorType:string[],
-    contentType:string[]
+    investorTypes:string[],
+    contentTypes:string[]
 }

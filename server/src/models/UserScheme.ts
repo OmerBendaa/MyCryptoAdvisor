@@ -1,25 +1,30 @@
 import mongoose from "mongoose";
 import { IUser, IUserPreferences } from "../common/types";
-
-const UserPreferencesScheme = new mongoose.Schema<IUserPreferences>(
+const ASSET_ENUM = ["Bitcoin", "Ethereum", "Solana", "Dogecoin"];
+const INVESTOR_ENUM = ["HODLer", "Day Trader", "NFT Collector", "Yield Farmer", "DeFi Enthusiast"];
+const CONTENT_ENUM = ["Market News", "Charts", "Social", "Fun", "Education"];
+const UserPreferencesSchema = new mongoose.Schema<IUserPreferences>(
   {
     cryptoAssets: {
       type: [String],
+      enum: ASSET_ENUM, 
       default: [],
     },
-    investorType: {
+    investorTypes: {
       type: [String],
+      enum: INVESTOR_ENUM, 
       default: [],
     },
-    contentType: {
+    contentTypes: {
       type: [String],
+      enum: CONTENT_ENUM,
       default: [],
     },
   },
-  { _id: false } 
+  { _id: false }
 );
 
-const UserScheme = new mongoose.Schema<IUser>({
+const UserSchema = new mongoose.Schema<IUser>({
   name: {
     type: String,
     required: true,
@@ -43,11 +48,11 @@ const UserScheme = new mongoose.Schema<IUser>({
     maxlength: 300,
   },
   userPreferences: {
-    type: UserPreferencesScheme,
+    type: UserPreferencesSchema,
     required: false,
     default: null, 
   },
 });
 
-const User = mongoose.model<IUser>("users", UserScheme);
+const User = mongoose.model<IUser>("users", UserSchema);
 export default User;

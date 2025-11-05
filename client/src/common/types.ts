@@ -1,11 +1,24 @@
-export interface IUser{
+export interface IUser {
   name: string;
   email: string;
   password: string;
   userPreferences?: IUserPreferences;
 }
 export interface IUserPreferences {
-    cryptoAssets:string[],
-    investorType:string[],
-    contentType:string[]
+  cryptoAssets: string[];
+  investorTypes: string[];
+  contentTypes: string[];
 }
+export type Asset = "Bitcoin" | "Ethereum" | "Solana" | "Dogecoin";
+export type InvestorType =
+  | "HODLer"
+  | "Day Trader"
+  | "NFT Collector"
+  | "Yield Farmer"
+  | "DeFi Enthusiast";
+export type ContentPreference =
+  | "Market News"
+  | "Charts"
+  | "Social"
+  | "Fun"
+  | "Education";
