@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; 
+import { API_USER_BASE } from "../common/constants";
 interface FormValues {
   email: string;
   password: string;
@@ -55,12 +56,12 @@ const SignUpPage = () => {
     if (errors.email === "" && errors.password === "" && errors.confirmPassword === "" && errors.name === "") {
       setIsLoading(true);
       axios
-        .post("http://localhost:5000/users/", {
+        .post(`${API_USER_BASE}users`, {
           email: formValues.email,
           password: formValues.password,
           name: formValues.name,
         }).then(async () => {
-            const data = await axios.post("http://localhost:5000/users/login", {
+            const data = await axios.post(`${API_USER_BASE}login`, {
             email: formValues.email,
             password: formValues.password,
           })

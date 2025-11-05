@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; 
 import fetchUser from "../utills/fetchUser";
+import { API_USER_BASE } from "../common/constants";
 interface FormValues {
   email: string;
   password: string;
@@ -42,7 +43,7 @@ const LoginPage = () => {
     if (errors.email === "" && errors.password === "") {
       setIsLoading(true);
       axios
-        .post("http://localhost:5000/users/login", {
+        .post(`${API_USER_BASE}login`, {
           email: formValues.email,
           password: formValues.password,
         })
