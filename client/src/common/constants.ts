@@ -1,3 +1,4 @@
+import env from "react-dotenv"
 export const ASSET_SUGGESTIONS: string[] = [
   "Bitcoin",
   "Ethereum",
@@ -18,4 +19,4 @@ export const CONTENT_OPTIONS: string[] = [
   "Fun",
   "Education",
 ];
- export const API_USER_BASE = "http://localhost:5000/users/";
+ export const API_USER_BASE = `${env.BACKEND_BASE_URL}/users/`;

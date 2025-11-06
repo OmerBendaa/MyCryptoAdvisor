@@ -1,0 +1,155 @@
+
+{
+  "memes": [
+    {
+      "id": 1,
+      "description": "Watching market dump 30% after you shilled #BTC ETF to your entire family last week",
+      "image_url": "https://web3.career/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNmxsQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--ee04fc1cf8adc820202dbd7e646091466ef57390/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWlBRGFRS1FBWHNHT2d4bmNtRjJhWFI1U1NJTFEyVnVkR1Z5QmpzR1ZBPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--910b983e7da43fe5999e46500b12c26e401df697/crypto-memes-2024.png"
+    },
+    {
+      "id": 2,
+      "description": "Babe remember all of that money we saved for the house",
+      "image_url": "https://web3.career/wp-content/uploads/memes/house-savings-crypto.jpg"
+    },
+    {
+      "id": 3,
+      "description": "Bitcoin memes 2025",
+      "image_url": "https://web3.career/wp-content/uploads/memes/bitcoin-2025.jpg"
+    },
+    {
+      "id": 4,
+      "description": "Altcoins are pumping",
+      "image_url": "https://web3.career/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBemhMQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--95c7bfed494b99edd4a3a8d53c43a605fac82479/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFJQUJHa0NBQU09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--7512606fd1fa5b2ea27d1bd4c5f8aea3534c6eef/alt%20coins%20are%20pumping.png"
+    },
+    {
+      "id": 5,
+      "description": "Chill guy meme",
+      "image_url": "https://web3.career/wp-content/uploads/memes/chill-guy-crypto.jpg"
+    },
+    {
+      "id": 6,
+      "description": "John Wick vs John Weak",
+      "image_url": "https://web3.career/wp-content/uploads/memes/john-wick-weak.jpg"
+    },
+    {
+      "id": 7,
+      "description": "Should I sell my Bitcoin",
+      "image_url": "https://web3.career/wp-content/uploads/memes/sell-bitcoin.jpg"
+    },
+    {
+      "id": 8,
+      "description": "How to Invest in Bitcoin",
+      "image_url": "https://web3.career/wp-content/uploads/memes/invest-bitcoin.jpg"
+    },
+    {
+      "id": 9,
+      "description": "Trading crypto be like",
+      "image_url": "https://web3.career/wp-content/uploads/memes/trading-crypto.jpg"
+    },
+    {
+      "id": 10,
+      "description": "From Whitepaper to Actual Product",
+      "image_url": "https://web3.career/wp-content/uploads/memes/whitepaper-product.jpg"
+    },
+    {
+      "id": 11,
+      "description": "I dressed my son up as SBF as a cop for Halloween how did I do?",
+      "image_url": "https://web3.career/wp-content/uploads/memes/sbf-halloween.jpg"
+    },
+    {
+      "id": 12,
+      "description": "Everyone sweating",
+      "image_url": "https://web3.career/wp-content/uploads/memes/everyone-sweating.jpg"
+    },
+    {
+      "id": 13,
+      "description": "How people think it's like to HODL",
+      "image_url": "https://web3.career/wp-content/uploads/memes/hodl-thinking.jpg"
+    },
+    {
+      "id": 14,
+      "description": "Every Single Time If I Sell or If I HODL",
+      "image_url": "https://web3.career/wp-content/uploads/memes/sell-or-hodl.jpg"
+    },
+    {
+      "id": 15,
+      "description": "How it feels to moonboi today",
+      "image_url": "https://web3.career/wp-content/uploads/memes/moonboi.jpg"
+    },
+    {
+      "id": 16,
+      "description": "Hindsight is a beautiful thing…",
+      "image_url": "https://web3.career/wp-content/uploads/memes/hindsight.jpg"
+    },
+    {
+      "id": 17,
+      "description": "The Difference Is There",
+      "image_url": "https://web3.career/wp-content/uploads/memes/difference.jpg"
+    },
+    {
+      "id": 18,
+      "description": "Well, Boys, Looks Like It Is Time To Sell",
+      "image_url": "https://web3.career/wp-content/uploads/memes/time-to-sell.jpg"
+    },
+    {
+      "id": 19,
+      "description": "Welcome to Meme Coins",
+      "image_url": "https://web3.career/wp-content/uploads/memes/meme-coins.jpg"
+    },
+    {
+      "id": 20,
+      "description": "Bitcoin price VS Me trying to be productive at work",
+      "image_url": "https://web3.career/wp-content/uploads/memes/bitcoin-productivity.jpg"
+    },
+    {
+      "id": 21,
+      "description": "Looks like a good investment. All in",
+      "image_url": "https://web3.career/wp-content/uploads/memes/all-in.jpg"
+    },
+    {
+      "id": 22,
+      "description": "Where lambo?",
+      "image_url": "https://web3.career/wp-content/uploads/memes/where-lambo.jpg"
+    },
+    {
+      "id": 23,
+      "description": "You like crypto?",
+      "image_url": "https://web3.career/wp-content/uploads/memes/like-crypto.jpg"
+    },
+    {
+      "id": 24,
+      "description": "My dad bought 3 bitcoins back in the day. Sell it or HODL?",
+      "image_url": "https://web3.career/wp-content/uploads/memes/dad-bitcoin.jpg"
+    },
+    {
+      "id": 25,
+      "description": "Do you make choices here too?",
+      "image_url": "https://web3.career/wp-content/uploads/memes/choices.jpg"
+    },
+    {
+      "id": 26,
+      "description": "My real job is not a job",
+      "image_url": "https://web3.career/wp-content/uploads/memes/real-job.jpg"
+    },
+    {
+      "id": 27,
+      "description": "Crypto then VS Crypto now",
+      "image_url": "https://web3.career/wp-content/uploads/memes/then-vs-now.jpg"
+    },
+    {
+      "id": 28,
+      "description": "Checkmate..",
+      "image_url": "https://web3.career/wp-content/uploads/memes/checkmate.jpg"
+    },
+    {
+      "id": 29,
+      "description": "The original business model",
+      "image_url": "https://web3.career/wp-content/uploads/memes/business-model.jpg"
+    },
+    {
+      "id": 30,
+      "description": "But crypto will save us right??",
+      "image_url": "https://web3.career/wp-content/uploads/memes/crypto-save-us.jpg"
+    }
+  ]
+}
