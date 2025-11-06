@@ -19,4 +19,4 @@ export const CONTENT_OPTIONS: string[] = [
   "Fun",
   "Education",
 ];
- export const API_USER_BASE = `${env.BACKEND_BASE_URL}/users/`;
+ export const API_USER_BASE = `https://my-crypto-advisor.vercel.app//users/`;
