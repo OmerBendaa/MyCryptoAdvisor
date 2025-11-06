@@ -14,10 +14,9 @@ const MarketNewsGrid = () => {
         queryKey:["market_news"],
         queryFn:()=>  cryptoPanicClient.getMarketNews()
     })
-
   return (
       <Grid container spacing={3}>
-                {marketNewsData?.data.results.map((content:MarketNewsDataType) => (
+                {marketNewsData?.data.results.slice(0,4).map((content:MarketNewsDataType) => (
                   <Grid key={content.id} size={4} >
                     <Card
                       sx={{

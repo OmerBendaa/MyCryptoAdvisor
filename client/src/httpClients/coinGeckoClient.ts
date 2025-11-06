@@ -10,6 +10,7 @@ const coinGeckoClient = axios.create({
     headers: { [API_KEY_HEADER]: env.COIN_GECKO_API_KEY }
  })
 const fetchCoinById=async(coinId:Asset):Promise<CoinDataType>=>{
+    console.log("geckoKey",env.COIN_GECKO_API_KEY)
     const lowerCaseCoinId=coinId.toLowerCase();
     try {
         

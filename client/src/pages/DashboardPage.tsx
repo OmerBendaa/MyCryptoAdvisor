@@ -14,7 +14,7 @@ import {
   OutlinedInput,
   Select,
   Stack,
-  Typography
+  Typography,
 } from "@mui/material";
 import { message } from "antd";
 import axios from "axios";
@@ -38,9 +38,10 @@ import fetchUser from "../utills/fetchUser";
 import cryptoPanicClient from "../httpClients/cryptoPanicClient";
 import MarketNewsGrid from "../components/MarketNewsGrid";
 import Meme from "../components/Meme";
-
+import { useNavigate } from "react-router-dom";
 
 const DashboardPage = () => {
+  const navigate = useNavigate();
   const [userId, setUserId] = useState<string | null>(null);
   const [userName, setUserName] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -59,10 +60,19 @@ const DashboardPage = () => {
     (selectedInvestorTypes.length > 0 ? 1 : 0) +
     (selectedContent.length > 0 ? 1 : 0);
 
-
-
-
+  const fetchUserPreferences = async () => {
+    try{
+    const user = await fetchUser();
+    const userPrefrence = user?.userPreferences || null;
+    userPrefrence ? navigate("/myDashboard") : navigate("/OnboardingQuiz");
+    }catch(error){
+      message.error("failed to fetch user preferences")
+    }
     
+  };
+  useEffect(() => {
+    fetchUserPreferences()
+  }, []);
 
   useEffect(() => {
     const getUser = async () => {
@@ -145,7 +155,6 @@ const DashboardPage = () => {
           </Typography>
         </Box>
 
-        {/* Edit Preferences Button */}
         <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 3 }}>
           <Button
             variant="outlined"
@@ -164,8 +173,8 @@ const DashboardPage = () => {
         </Box>
         <InsightOfTheDay selectedInvestorTypes={selectedInvestorTypes} />
         <CoinGrid selectedAssets={selectedAssets} />
-        <MarketNewsGrid/>
-        <Meme/>
+        <MarketNewsGrid />
+        <Meme />
         <Dialog
           open={isModalOpen}
           onClose={handleCloseModal}
@@ -178,8 +187,8 @@ const DashboardPage = () => {
           }}
         >
           <DialogTitle>
-            <Typography variant="h5" sx={{ textAlign: "center" }}>
-              Edit Your Preferences
+            <Typography variant="h6" sx={{ textAlign: "center" }}>
+              Edit your preferences-custom your experience
             </Typography>
           </DialogTitle>
           <DialogContent>
