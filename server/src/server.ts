@@ -7,7 +7,6 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-console.log("mongoUri---->",process.env.MONGO_URI);
 mongoose.connect(process.env.MONGO_URI||"")
 .then(() => console.log("MongoDB connected"))
 .catch((err) => console.error("MongoDB connection error:", err));
