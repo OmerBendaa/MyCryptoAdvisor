@@ -19,5 +19,5 @@ export const CONTENT_OPTIONS: string[] = [
   "Fun",
   "Education",
 ];
- export const API_USER_BASE = `https://mycryptoadvisor-production.up.railway.app/users`;
+ export const API_USER_BASE = `https://mycryptoadvisor-production.up.railway.app/users/`;
  
