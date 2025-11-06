@@ -4,7 +4,7 @@
   "description": "Node.js REST API with TypeScript",
   "main": "server.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build",
     "start": "node dist/server.js",
     "dev": "ts-node src/server.ts"
   },
